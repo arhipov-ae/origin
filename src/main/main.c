@@ -38,7 +38,7 @@ void configure_USART(void)
 
 void configure_GPIO(void)
 {
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
   GPIO_InitTypeDef GPIO_InitStructure;
  
   GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_8;
@@ -77,7 +77,7 @@ void USART1_IRQHandler(void)
     if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
     {
         USART_ClearFlag(USART1, USART_IT_RXNE);
-			i = USART_ReceiveData(USART1);
+	i = USART_ReceiveData(USART1);
         if(i == 1)
           GPIO_WriteBit(GPIOA,GPIO_Pin_8,Bit_SET);        
         else if(i == 0)
