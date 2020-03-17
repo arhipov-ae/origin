@@ -76,7 +76,6 @@ void USART1_IRQHandler(void)
     	int i;
     	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
     	{
-        	USART_ClearFlag(USART1, USART_IT_RXNE);
 		i = USART_ReceiveData(USART1);
         	if(i == 1)
           		GPIO_WriteBit(GPIOA,GPIO_Pin_8,Bit_SET);        
